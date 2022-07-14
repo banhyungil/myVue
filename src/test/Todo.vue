@@ -1,32 +1,30 @@
 <template>
-    <input type="text" v-model="sNewTodo" v-on:keyup.enter="addTodo">
-    <button @click="addTodo">add</button>
-    <button @click="deleteTodo">delete</button>
+    <input type="text" v-model="sNewTodo" @keyup.enter="addTodo">
+    <button @click="addTodo">add Todo</button>
     <li v-for="oTodo in filterdTodos" :key="oTodo.id">
         <input type="checkbox" v-model="oTodo.done">
-        <span :class="oTodo.done === true ? 'done' : ''">{{oTodo.text}}</span>
+        <span :class="oTodo.done?'done':''">{{oTodo.text}}</span>
         <button @click="deleteTodo(oTodo)">X</button>
     </li>
-    <input type="checkbox" v-model="isHideDone">{{isHideDone?"hide Done":"show all"}}
-    <p>{{log}}</p>
-
+    <input type="checkbox" v-model="isHideDone">
+    <span>{{isHideDone?"Hide Done":"Show All"}}</span>
 </template>
 
 <script>
     let id = 0;
-    export default {
+    export default{
         data(){
             return {
-                greet: '안녕',
+                todos:[{id:id++, text:'learn javascript', done:false}],
                 sNewTodo:'',
-                todos:[{id:id++, text:"first", done:true}],
-                isHideDone:''
+                isHideDone:false
             }
         },
         methods:{
             addTodo(){
                 let oTodo = {id:id++, text:this.sNewTodo, done:false};
                 this.todos.push(oTodo);
+
                 this.sNewTodo = '';
             },
             deleteTodo(oTodo){
@@ -43,7 +41,7 @@
 </script>
 
 <style>
-    .done {
-        color:blue;
-    }
+.done {
+  color: blue;
+}
 </style>
