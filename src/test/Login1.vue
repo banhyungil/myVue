@@ -4,15 +4,15 @@
         <form action="">
             <section class="sec-login">
                 <div class="login-inp">
-                    <input type="text" id="id" name="id" autocomplete="off" required>
-                    <label for="id">USER ID</label>
+                    <input type="text" v-model="id" id="id" name="id" autocomplete="off" required>
+                    <label :class="lblIdClass" for="id">USER ID</label>
                 </div>
                 <div class="login-inp">
-                    <input type="text" id="pw" name="pw" autocomplete="off" required>
-                    <label for="pw">USER PASSWORD</label>
+                    <input type="text" v-model="pw" id="pw" name="pw" autocomplete="off" required>
+                    <label :class="lblPwClass" for="pw">USER PASSWORD</label>
                 </div>
                 <div class="login-btn">
-                    <button>LOGIN</button>
+                    <button @click="login">LOGIN</button>
                 </div>
             </section>
         </form>
@@ -22,6 +22,32 @@
     </section>
 </template>
 <script>
+    export default {
+        data() {
+            return {
+                id:"",
+                pw:"",
+                lblIdClass: "",
+                lblPwClass: ""
+            }
+        },
+        methods:{
+            login(){
+                if(this.id == ""){
+                    this.lblIdClass = "warning";
+                    setTimeout(() => {
+                        this.lblIdClass = "";
+                    }, 1500);
+                }else if(this.pw == ""){
+                    this.lblPwClass = "warning";
+                    setTimeout(() => {
+                        this.lblPwClass = "";
+                    }, 1500);
+                }
+            }
+        }
+
+    }
 </script>
 <style>
     @import url("@/css/style1.css");

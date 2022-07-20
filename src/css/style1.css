@@ -25,9 +25,10 @@
     .sec-login {
         position: relative;
     }
-    .login-inp {
+    .login-inp{
         position: relative;
         width:400px;
+        margin-top:10px;
     }
     .login-inp input {
         width:100%;
@@ -47,6 +48,17 @@
         top:20px;
         transition: top .5s ease;
     }
+    .login-inp label.warning {
+        color: red !important;
+        animation: warning .3s ease;
+        animation-iteration-count: 3;
+    }
+    @keyframes warning{
+        0% {transform: translateX(8px);}
+        25% {transform: translateX(-8px);}
+        50% {transform: translateX(8px);}
+        75% {transform: translateX(-8px);}
+    }
 
     .login-inp input:focus + label,
     .login-inp input:valid + label{
@@ -57,6 +69,22 @@
     .caption a{
         color: #999;
         text-decoration: none;
+    }
+
+    .login-btn{
+        margin-top: 30px;
+    }
+
+    .login-btn button{
+        width: 100%; padding: 10px;
+        background-color: #1660ea; 
+        font-size: 20px; color: #fff;
+        border-radius: 35px;
+        cursor: pointer;
+    }
+
+    .caption {
+        margin-top: 30px;
     }
 
     
