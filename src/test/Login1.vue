@@ -1,5 +1,5 @@
 <template>
-    <section class="sec-login-ctn">
+    <section class="sec-login-ctnr">
         <h1>Half Road</h1>
         <form action="">
             <section class="sec-login">
@@ -33,16 +33,17 @@
         },
         methods:{
             login(){
-                if(this.id == ""){
-                    this.lblIdClass = "warning";
+                if(this.id == "" || this.pw == ""){
+                    
+                    if(this.id == ""){
+                        this.lblIdClass = "warning";
+                    }else if(this.pw == ""){
+                        this.lblPwClass = "warning";
+                    }
+
                     setTimeout(() => {
                         this.lblIdClass = "";
-                    }, 1500);
-                }else if(this.pw == ""){
-                    this.lblPwClass = "warning";
-                    setTimeout(() => {
-                        this.lblPwClass = "";
-                    }, 1500);
+                    }, 1500);   
                 }
             }
         }

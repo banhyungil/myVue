@@ -4,7 +4,7 @@
         margin:0%;
         padding: 0%;
     }
-    .sec-login-ctn {
+    .sec-login-ctnr {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -13,10 +13,10 @@
         background-size: cover;
         height:100vh;
     }
-    .sec-login-ctn::before{
+    .sec-login-ctnr::before{
         background-color: rgba(0, 0, 0, .7);
     }
-    .sec-login-ctn h1 {
+    .sec-login-ctnr h1 {
         font-family: 'Nanum Gothic Coding', monospace;
         color: white;
         font-size: 30px;
