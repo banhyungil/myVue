@@ -52,4 +52,7 @@
 </script>
 <style>
     @import url("@/css/style1.css");
+    ul {
+        color:rgb(153, 153, 153);
+    }
 </style>
